@@ -38,10 +38,9 @@
 
 name: Publish release
 
-on:
-  push:
-    tags:
-      - '*'
+on: workflow_dispatch
+
+permissions: write-all
 
 jobs:
 

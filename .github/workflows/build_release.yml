@@ -88,11 +88,10 @@ jobs:
         run: |
           pwsh -ep Bypass -c .\tools\generate-md5.ps1 ./out
           
-      - name: Upload to release
-        uses: ncipollo/release-action@v1
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
         with:
-          artifacts: ./out/*.zip,./out/*.md5sum,./out/*.nupkg
-          draft: true
-          bodyFile: ./out/checksums.md
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: ci
+          path: |
+            out/**/*
           
